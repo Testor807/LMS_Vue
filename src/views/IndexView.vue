@@ -4,4 +4,5 @@ import VerticalList from '../components/index/VerticalList.vue'
 </script>
 
 <template>
+    <VerticalList />
 </template>

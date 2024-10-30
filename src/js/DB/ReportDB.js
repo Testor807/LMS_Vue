@@ -1,5 +1,4 @@
 let data = [];
-var str = "";
 const firebaseConfig = {
     apiKey: "AIzaSyBEh1u6MzDrqwIG1v5hVj9lAVV-L5oZeOg",
     authDomain: "lms1-f35b6.firebaseapp.com",
@@ -11,14 +10,16 @@ const firebaseConfig = {
   };
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
-var Staff_ref = db.collection("LMS").doc("Tables").collection("Staff");
-var action = "<?=$action;?>"
-StaffIn();
+var login = false;
+var str = "";
+var action = "<?=$action;?>";
+var Report_Ref = db.collection("LMS").doc("Tables").collection("BookReport");
+if (action == "report") {
+    ShowReports();
+}
 
-function StaffIn() {
-    var id = "<?=$AccID;?>";
-    var query = Staff_ref.where('AccID', '==', id);
-    query.onSnapshot((querySnapshot) => {
+function ShowReports(){
+    Report_Ref.onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             data.push(doc.data());
         });
@@ -27,7 +28,8 @@ function StaffIn() {
     });
 }
 
-function WindowReplace() {
-    var url = '../Temp/Staff_Temp.php?action=' + action + '&info=' + str;
+function WindowReplace(){
+    console.log(str);
+    var url = "../Temp/Report_Temp.php?action="+action+"&reports="+(str);
     window.location.replace(url);
 }

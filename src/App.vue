@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import {Book} from './js/DB/ItemDB.js'
+const book = new Book()
+book.getAll()
 </script>
 
 <template>
