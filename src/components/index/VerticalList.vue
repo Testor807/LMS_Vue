@@ -9,23 +9,6 @@
 </template>
 
 <script>
-import { db } from '../../js/DB/firebase.js'; // 確保正確引入 Firebase 配置
-import { collection, getDocs, doc } from "firebase/firestore";
-
-export default {
-  data() {
-    return {
-      items: []
-    };
-  },
-  async mounted() {
-    try {
-      const booksCollectionRef = collection(doc(collection(db, "LMS"), 'Tables'), 'Book'); // 替換為你的集合名稱
-      const querySnapshot = await getDocs(booksCollectionRef);
-      this.items = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    } catch (error) {
-      console.error("Error fetching documents: ", error);
-    }
-  }
-};
+import {GetBookStoack} from '../../js/DB/ItemDB.js'
+console.log(GetBookStoack());
 </script>
