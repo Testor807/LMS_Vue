@@ -13,8 +13,8 @@
             <tr><td>{{item.Publication_Year}}</td></tr>
           </tbody>
         </table>
+        <br />
       </div>
-      <hr />
     </div>
 
   </div>
