@@ -1,10 +1,22 @@
 <template>
   <div>
     <h1>Books List</h1>
-    <ul v-if="items.length">
-      <li v-for="item in items" :key="item.id">{{ item.BookName_CN }}</li>
-    </ul>
-    <p v-else>No books found.</p>
+    <div v-if="items.length">
+      <div v-for="item in items" :key="item.id">
+        <table>
+          <thead>
+            <tr><th colspan="2">{{ item.BookName_EN }}</th></tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="3"></td><td>{{item.Author}}</td></tr>
+            <tr><td>{{item.Publication}}</td></tr>
+            <tr><td>{{item.Publication_Year}}</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <hr />
+    </div>
+
   </div>
 </template>
 
@@ -29,4 +41,7 @@ export default {
 
 <style>
 /* 添加一些樣式 */
+table, tr,td,th{
+  border: 1px solid black;
+}
 </style>
