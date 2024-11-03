@@ -1,19 +1,18 @@
 <template>
+<template>
   <div>
     <h1>Books List</h1>
     <div v-if="items.length">
-      <div v-for="item in items" :key="item.id">
         <table>
           <thead>
-            <tr><th colspan="2">{{ item.BookName_EN }}</th></tr>
+            <tr><th>Library</th><th>Item ID</th><th>Status</th><th>Position</th></tr>
           </thead>
           <tbody>
-            <tr><td rowspan="3"></td><td>{{item.Author}}</td></tr>
-            <tr><td>{{item.Publication}}</td></tr>
-            <tr><td>{{item.Publication_Year}}</td></tr>
+            <tr v-for="item in items" :key="item.id">
+                <td rowspan="3"></td><td>{{item.Author}}</td>
+            </tr>
           </tbody>
         </table>
-        <br />
       </div>
     </div>
 
@@ -45,3 +44,4 @@ table, tr,td,th{
   border: 1px solid black;
 }
 </style>
+</template>

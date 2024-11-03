@@ -1,13 +1,18 @@
 <template>
+<template>
   <div>
     <h1>Books List</h1>
-    <div v-if="items.length" class="container">
-      <div class="item" v-for="item in items" :key="item.id">
+    <div v-if="items.length">
+      <div v-for="item in items" :key="item.id">
         <table>
+          <thead>
+            <tr><th colspan="2">{{ item.Library }}</th></tr>
+          </thead>
           <tbody>
-            <tr><td rowspan="3"></td><td>{{item.Author}}</td></tr>
-            <tr><td>{{item.Publication}}</td></tr>
-            <tr><td>{{item.Publication_Year}}</td></tr>
+            <tr><td rowspan="3"></td><td>Open Hours</td><td>{{item.Author}}</td></tr>
+            <tr><td>Office Number</td><td>{{item.Contact}}</td></tr>
+            <tr><td>Address</td><td>{{item.Location}}</td></tr>
+            <tr><td colspan="3" rowspan="4">Map</td></tr>
           </tbody>
         </table>
         <br />
@@ -41,18 +46,5 @@ export default {
 table, tr,td,th{
   border: 1px solid black;
 }
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.item {
-  flex: 1 0 30%; /* 每个元素占据 30% 的宽度 */
-  box-sizing: border-box; /* 包含内边距和边框在内 */
-  margin: 5px; /* 元素之间的间距 */
-  background-color: #f0f0f0;
-  padding: 10px;
-  text-align: center;
-}
 </style>
+</template>
