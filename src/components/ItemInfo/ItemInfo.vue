@@ -1,21 +1,23 @@
 <template>
 <template>
   <div>
-    <h1>Books List</h1>
-    <div v-if="items.length">
-        <table>
-          <thead>
-            <tr><th>Library</th><th>Item ID</th><th>Status</th><th>Position</th></tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in items" :key="item.id">
-                <td rowspan="3"></td><td>{{item.Author}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  </div>
+  <br />
+  <hr />
+  <div>
+  <table>
+    <thead>
+      <tr><th>Library</th><th>Book ID</th><th>Status</th><th>Position</th></tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
   </div>
 </template>
 
