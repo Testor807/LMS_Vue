@@ -1,7 +1,6 @@
 <template>
-<template>
   <div>
-    <h1>Books List</h1>
+    <h1>Library Information</h1>
     <div v-if="items.length">
       <div v-for="item in items" :key="item.id">
         <table>
@@ -9,9 +8,10 @@
             <tr><th colspan="2">{{ item.Library }}</th></tr>
           </thead>
           <tbody>
-            <tr><td rowspan="3"></td><td>Open Hours</td><td>{{item.Author}}</td></tr>
-            <tr><td>Office Number</td><td>{{item.Contact}}</td></tr>
-            <tr><td>Address</td><td>{{item.Location}}</td></tr>
+            <tr><td colspan="2"></td></tr>
+            <tr><td>Open Hours</td><td></td></tr>
+            <tr><td>Office Number</td><td>{{ item.Contact }}</td></tr>
+            <tr><td>Address</td><td>{{ item.Location }}</td></tr>
             <tr><td colspan="3" rowspan="4">Map</td></tr>
           </tbody>
         </table>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { fetchBooks } from '../../js/DB/BookDB.js'; // 引入資料檢索函數
+import { fetchLib } from '@/js/DB/LibDB'; // 引入資料檢索函數
 
 export default {
   data() {
@@ -33,7 +33,7 @@ export default {
   },
   async mounted() {
     try {
-      this.items = await fetchBooks(); // 獲取書籍資料
+      this.items = await fetchLib(); // 獲取書籍資料
     } catch (error) {
       console.error("Failed to fetch books: ", error);
     }
@@ -47,4 +47,3 @@ table, tr,td,th{
   border: 1px solid black;
 }
 </style>
-</template>

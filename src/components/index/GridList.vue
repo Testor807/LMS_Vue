@@ -3,9 +3,10 @@
     <h1>Books List</h1>
     <div v-if="items.length" class="container">
       <div class="item" v-for="item in items" :key="item.id">
-        <table>
+        <table id="item">
           <tbody>
-            <tr><td rowspan="3"></td><td>{{item.Author}}</td></tr>
+            <tr><td></td></tr>
+            <tr><td>{{item.Author}}</td></tr>
             <tr><td>{{item.Publication}}</td></tr>
             <tr><td>{{item.Publication_Year}}</td></tr>
           </tbody>
@@ -54,5 +55,9 @@ table, tr,td,th{
   background-color: #f0f0f0;
   padding: 10px;
   text-align: center;
+}
+
+#item{
+  margin: auto;;
 }
 </style>
