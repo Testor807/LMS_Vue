@@ -5,10 +5,13 @@
       <div class="item" v-for="item in items" :key="item.id">
         <table id="item">
           <tbody>
-            <tr><td></td></tr>
-            <tr><td>{{item.Author}}</td></tr>
-            <tr><td>{{item.Publication}}</td></tr>
-            <tr><td>{{item.Publication_Year}}</td></tr>
+            <tr><td><img :src="item.img" /></td></tr>
+            <tr><td><div @click="click(item.BookName_EN)">
+              <div>{{ item.BookName_EN }}/{{ item.Author }}著</div>
+              <div v-if="item.Translator">{{ item.Translator }}(譯)</div>
+            </div></td></tr>
+            <tr><td>{{item.Publication}} ;{{item.Publication_Year}}</td></tr>
+            <tr><td>Subject:{{item.Subject}}</td></tr>
           </tbody>
         </table>
         <br />
@@ -19,9 +22,21 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
 import { fetchBooks } from '../../js/DB/BookDB.js'; // 引入資料檢索函數
 
 export default {
+  setup(){
+    const router = useRouter()
+    const click = (item) => {
+      router.push({
+        path: '/item'
+      })
+    }
+    return {
+      click
+    }
+  },
   data() {
     return {
       items: []

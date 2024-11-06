@@ -1,6 +1,6 @@
 
 <script>
-import { fetchBooks } from '../js/DB/BookDB.js'; // 引入資料檢索函數
+import { fetchBooks } from '../../js/DB/BookDB.js'; // 引入資料檢索函數
 
 export default {
   data() {

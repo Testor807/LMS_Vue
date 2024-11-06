@@ -5,12 +5,15 @@
       <div v-for="item in items" :key="item.id">
         <table>
           <thead>
-            <tr class="head"><th colspan="2">{{ item.BookName_EN }}</th></tr>
+            <tr class="head"><th colspan="3">
+              <div>{{ item.BookName_EN }}/{{ item.Author }}著</div>
+              <div v-if="item.Translator">{{ item.Translator }}(譯)</div>
+            </th></tr>
           </thead>
           <tbody>
-            <tr><td rowspan="3"></td><td>{{item.Author}}</td></tr>
-            <tr><td>{{item.Publication}}</td></tr>
-            <tr><td>{{item.Publication_Year}}</td></tr>
+            <tr><td rowspan="7"><img :src="item.img" /></td><td>出版</td><td>{{item.Publication}}; {{item.Publication_Year}}</td></tr>
+            <tr><td>Version</td><td></td></tr>
+            <tr><td>Subject</td><td>{{item.Subject}}</td></tr>
           </tbody>
         </table>
         <br />

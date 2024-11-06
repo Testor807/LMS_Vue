@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-//import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import ItemInfo from '../components/Item/ItemInfo.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,17 +7,27 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      //component: HomeView
+      component: ()=>import('../components/index/GridList.vue') // You can reference the imported ItemInfo directly
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      //component: () => import('../views/AboutView.vue')
+      path: '/item',
+      name: 'item',
+      component: ()=>import('../components/index/VerticalList.vue') // You can reference the imported ItemInfo directly
     }
   ]
-})
+});
 
-export default router
+export default router;
+
+export const NOT_FOUND_ROUTE = {
+  name: 'NotFound',
+  path: '/:pathMatch(.*)*',
+  redirect: '/404',
+  isHidden: true,
+};
+
+export const EMPTY_ROUTE = {
+  name: 'Empty',
+  path: '/:pathMatch(.*)*',
+  component: null,
+};
