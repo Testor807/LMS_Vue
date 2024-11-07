@@ -24,10 +24,5 @@
 </div>
 </template>
 <style>
-#left-side{
-    float: left
-}
-#right-side{
-    float: left
-}
+
 </style>
