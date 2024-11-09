@@ -6,7 +6,7 @@
         <table id="item">
           <tbody>
             <tr><td><img :src="item.img" /></td></tr>
-            <tr><td><div @click="click(item.BookName_EN)">
+            <tr><td><div @click="click(item.ISBN)">
               <div>{{ item.BookName_EN }}/{{ item.Author }}著</div>
               <div v-if="item.Translator">{{ item.Translator }}(譯)</div>
             </div></td></tr>

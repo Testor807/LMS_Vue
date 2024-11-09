@@ -6,8 +6,10 @@
         <table>
           <thead>
             <tr class="head"><th colspan="3">
+              <div @click="click(item.ISBN)">
               <div>{{ item.BookName_EN }}/{{ item.Author }}著</div>
               <div v-if="item.Translator">{{ item.Translator }}(譯)</div>
+              </div>
             </th></tr>
           </thead>
           <tbody>

@@ -1,7 +1,12 @@
 
+<template>
+  <div>A</div>
+  <div>B</div>
+</template>
 <script>
+import { useRouter } from 'vue-router';
 import { fetchBooks } from '../../js/DB/BookDB.js'; // 引入資料檢索函數
-
+console.log(localStorage.getItem('item'));
 export default {
   data() {
     return {
@@ -17,12 +22,6 @@ export default {
   }
 };
 </script>
-
-<template>
-  <div>A</div>
-  <div>B</div>
-</template>
-
 <style>
 /* 添加一些樣式 */
 table, tr,td,th{
