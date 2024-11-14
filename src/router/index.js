@@ -8,10 +8,11 @@ import Vert from '../components/index/GridList.vue';
 import item from '../components/Item/ItemInfo.vue';
 import Component1 from '@/components/Component1.vue';
 import Component2 from '@/components/Component2.vue';
+import LibInfo from '@/components/PublicInfo/LibInfo.vue';
 const routes = [
   //{ path: '/', component: Home },
   { path: '/about', component: About },
-  { path: '/', component: Component1 },
+  { path: '/', component: LibInfo},
   { path: '/about2', component: Component2 },
   { path: '/item', name:'item',component: item},
 

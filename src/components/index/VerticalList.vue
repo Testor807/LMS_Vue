@@ -26,9 +26,23 @@
 </template>
 
 <script>
-import { fetchBooks } from '../../js/DB/BookDB.js'; // 引入資料檢索函數
-
+import { useRouter } from 'vue-router';
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
+import { fetchBooks,QueryISBN } from '../../js/DB/BookDB.js'; // 引入資料檢索函數
+import store from '../../js/Store/Item.js';
 export default {
+  setup(){
+    const router = useRouter()
+    const click = (item) => {
+      store.commit('setISBN',item)
+      router.push({
+        path: '/item'
+      })
+    }
+    return {
+      click
+    }
+  },
   data() {
     return {
       items: []
@@ -40,6 +54,10 @@ export default {
     } catch (error) {
       console.error("Failed to fetch books: ", error);
     }
+  },
+  computed: {
+    // 使用 mapState 來映射 state
+    ...mapState(['ISBN']),
   }
 };
 </script>

@@ -1,17 +1,13 @@
-// store.js
+
 import { createStore } from 'vuex';
 
 const store = createStore({
   state: {
-    count: 0,
-    user: null,
+    ISBN: null,
   },
   mutations: {
-    increment(state) {
-      state.count++;
-    },
-    setUser(state, name) {
-      state.user = name;
+    setISBN(state, isbn) {
+      state.ISBN = isbn;
     },
   },
   actions: {
@@ -22,17 +18,14 @@ const store = createStore({
       // 模擬 API 請求
       const user = await new Promise(resolve => {
         setTimeout(() => {
-          resolve({ name: 'John Doe', age: 30 });
+          resolve({ ISBN: null,  });
         }, 1000);
       });
     },
   },
   getters: {
-    count(state) {
-      return state.count;
-    },
     user(state) {
-      return state.user;
+      return state.ISBN;
     },
   },
 });

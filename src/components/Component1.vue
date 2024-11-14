@@ -4,11 +4,17 @@
     <h2>User: {{ user ? user.name : 'No user logged in' }}</h2>
     <button @click="increment">Increment</button>
     <button @click="fetchUser">Fetch User</button>
+    <button @click="click()">Next Page</button>
   </div>
+  <router-view></router-view>
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
+import { fetchBooks } from '@/js/DB/BookDB';
+
+import store from '@/js/store';
 
 export default {
   computed: {
@@ -24,6 +30,11 @@ export default {
     
     // 使用 mapActions 來映射 actions
     ...mapActions(['fetchUser']),
+
+    click(){
+      //store.commit('setUser',{name: 'Tome', age: 50})
+      this.$router.push({ path: '/about2' });
+    }
   },
 };
 </script>
