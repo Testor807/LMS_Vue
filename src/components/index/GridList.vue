@@ -25,7 +25,7 @@
 import { useRouter } from 'vue-router';
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 import { fetchBooks,QueryISBN } from '../../js/DB/BookDB.js'; // 引入資料檢索函數
-import store from '../../js/Store/Item.js';
+import store from '../../js/store/Item.js';
 export default {
   setup(){
     const router = useRouter()

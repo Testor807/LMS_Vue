@@ -9,10 +9,12 @@ import item from '../components/Item/ItemInfo.vue';
 import Component1 from '@/components/Component1.vue';
 import Component2 from '@/components/Component2.vue';
 import LibInfo from '@/components/PublicInfo/LibInfo.vue';
+import Login from '../components/loginForm.vue';
+import current from '@/components/Records/current.vue';
 const routes = [
   //{ path: '/', component: Home },
   { path: '/about', component: About },
-  { path: '/', component: LibInfo},
+  { path: '/', component: current},
   { path: '/about2', component: Component2 },
   { path: '/item', name:'item',component: item},
 
